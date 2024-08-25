@@ -1,7 +1,8 @@
+//#define   TX_COMPILED
 #include "TXLib.h"
 #include <stdio.h>
 #include <math.h>
-                     // TODO: read why compiling is so long
+
 struct SquareEquationCoefficients
 {
     double a;
@@ -39,6 +40,12 @@ enum NumberOfRoots
     SS_INF_ROOTS = -1
 };
 
+enum SolveStatus
+{
+    solver_fail,
+    solver_ok
+};
+
 const int NUMBER_OF_TESTS = 5;
 
 const char AUTOMATICALLY = '1';
@@ -47,14 +54,14 @@ const char SPECIFIC_CASE = '2';
 
 void get_coefficients( SquareEquationCoefficients *coefficients );
 void clean_buff();
-int  choose_how_to_test( test_data parameters[], SquareEquationCoefficients *coefficients, EquationParameters *equation_parameters );
+void  choose_how_to_test( test_data parameters[], SquareEquationCoefficients *coefficients, EquationParameters *equation_parameters );
 bool compare_with_zero( double number );
 int  print_roots( Roots *cur_roots );
-int  solve_square( EquationParameters *equation_parameters );
+bool  solve_square( EquationParameters *equation_parameters );
 int  run_test( test_data *data );
 int  test_solver( test_data parameters[] );
-int  solve_linear( EquationParameters *equation_parameters );
-int  type_definer( EquationParameters *equation_parameters );
+bool  solve_linear( EquationParameters *equation_parameters );
+bool  type_definer( EquationParameters *equation_parameters );
 int  count_correct_number_of_roots( Roots *cur_roots, Roots *expected_roots );
 
 int main()
@@ -76,7 +83,7 @@ int main()
     choose_how_to_test( parameters, &coefficients, &equation_parameters );
 }
 
-int type_definer( EquationParameters *equation_parameters ) //make bool to enum
+bool type_definer( EquationParameters *equation_parameters )
 {
     assert( &equation_parameters->coefficients != NULL);
 
@@ -84,13 +91,14 @@ int type_definer( EquationParameters *equation_parameters ) //make bool to enum
     {
         if ( compare_with_zero( equation_parameters->coefficients.b ) )
         {
-
-            return equation_parameters->cur_roots.number_of_roots = compare_with_zero( equation_parameters->coefficients.c ) ? SS_INF_ROOTS : ZERO_ROOTS;
+            equation_parameters->cur_roots.number_of_roots = compare_with_zero( equation_parameters->coefficients.c ) ? SS_INF_ROOTS : ZERO_ROOTS;
+            return solver_ok;
         }
         else
         {
             solve_linear( equation_parameters );
-            return equation_parameters->cur_roots.number_of_roots = ONE_ROOT;
+            equation_parameters->cur_roots.number_of_roots = ONE_ROOT;
+            return solver_ok;
         }
     }
     else if ( compare_with_zero( equation_parameters->coefficients.c ) &&
@@ -98,18 +106,18 @@ int type_definer( EquationParameters *equation_parameters ) //make bool to enum
     {
         solve_linear( equation_parameters );
         equation_parameters->cur_roots.x1 = 0;
-
-        return equation_parameters->cur_roots.number_of_roots = TWO_ROOTS;
+        equation_parameters->cur_roots.number_of_roots = TWO_ROOTS;
+        return solver_ok;
     }
     else
     {
         solve_square( equation_parameters );
-        return solve_square( equation_parameters );
+        return solver_ok;
     }
-
+    return solver_fail;
 }
 
-int solve_square( EquationParameters *equation_parameters ) // TODO: make bool AND enum
+bool solve_square( EquationParameters *equation_parameters )
 {
     assert( &equation_parameters->coefficients != NULL);
     assert( &equation_parameters->cur_roots != NULL);
@@ -120,7 +128,7 @@ int solve_square( EquationParameters *equation_parameters ) // TODO: make bool A
     {
         equation_parameters->cur_roots.x1 = equation_parameters->cur_roots.x2 = -equation_parameters->coefficients.b / ( 2 * equation_parameters->coefficients.a );
         equation_parameters->cur_roots.number_of_roots = ONE_ROOT;
-        return ONE_ROOT;
+        return solver_ok;
     }
     else if (d > EPSILON)
     {
@@ -128,19 +136,23 @@ int solve_square( EquationParameters *equation_parameters ) // TODO: make bool A
 
         equation_parameters->cur_roots.x1 = ( -equation_parameters->coefficients.b - sqrt_d ) / ( 2 * equation_parameters->coefficients.a );
         equation_parameters->cur_roots.x2 = ( -equation_parameters->coefficients.b + sqrt_d ) / ( 2 * equation_parameters->coefficients.a );
-
-        return equation_parameters->cur_roots.number_of_roots = TWO_ROOTS;
+        equation_parameters->cur_roots.number_of_roots = TWO_ROOTS;
+        return solver_ok;
     }
     else
     {
-        return equation_parameters->cur_roots.number_of_roots = ZERO_ROOTS;
+        equation_parameters->cur_roots.number_of_roots = ZERO_ROOTS;
+        return solver_ok;
     }
+    return solver_fail;
 }
 
-int solve_linear( EquationParameters *equation_parameters ) // TODO: make bool
+bool solve_linear( EquationParameters *equation_parameters )
 {
-   equation_parameters->cur_roots.x1 = equation_parameters->cur_roots.x2 = -equation_parameters->coefficients.c / equation_parameters->coefficients.b;
-        return equation_parameters->cur_roots.number_of_roots = ONE_ROOT;  // TODO: aura bankrupt. set x2 = NAN
+   equation_parameters->cur_roots.x1 = NAN;
+   equation_parameters->cur_roots.x2 = -equation_parameters->coefficients.c / equation_parameters->coefficients.b;
+   equation_parameters->cur_roots.number_of_roots = ONE_ROOT;
+   return solver_ok;
 }
 
 void get_coefficients( SquareEquationCoefficients *coefficients )
@@ -196,9 +208,8 @@ int run_test( test_data *data )
 {
     assert( data != NULL );
 
-    Roots expected_roots = {};  // TODO: remove this line
-
-    int number_of_roots = type_definer( &data->equation_parameters );
+    type_definer( &data->equation_parameters );
+    int number_of_roots = data->equation_parameters.cur_roots.number_of_roots;
     int count_of_correct_tests = 0;
 
     if ( number_of_roots != data->expected_roots.number_of_roots )
@@ -213,7 +224,7 @@ int run_test( test_data *data )
             return ZERO_ROOTS;
             break;
         case ONE_ROOT:
-            if ( compare_with_zero( data->equation_parameters.cur_roots.x1 - data->expected_roots.x1 ) )
+            if ( compare_with_zero( data->equation_parameters.cur_roots.x2 - data->expected_roots.x2 ) )
             {
                 txSetConsoleAttr( FOREGROUND_GREEN | BACKGROUND_BLACK );
                 printf( "#OK\n" );
@@ -253,27 +264,28 @@ int run_test( test_data *data )
             printf( "#OK\n" );
             return SS_INF_ROOTS;
     }
-}equation_parameters->cur_roots.number_of_roots = ONE_ROOT;
+}
 
 int test_solver( test_data parameters[] )
 {
-    // TODO: assert
+    assert( parameters != NULL );
+
     for ( int i = 0; i < NUMBER_OF_TESTS; i++ )
     {
         run_test( &parameters[i] );
         int count_of_correct_tests = 0;
-        for ( i = 0; i < NUMBER_OF_TESTS; i++)
+        for ( i = 0; i < NUMBER_OF_TESTS; i++ )
         {
             count_of_correct_tests += run_test( &parameters[i] );
         }
-        printf( "#Number of test done right = %d out of 5", count_of_correct_tests);
+        printf( "#Number of test done right = %d out of 5", count_of_correct_tests );
         return count_of_correct_tests;
     }
 }
 
-int choose_how_to_test( test_data parameters[], SquareEquationCoefficients *coefficients, EquationParameters *equation_parameters )
-{  // FIXME: int to void
-    printf( "#If you want test solver automatically please enter 1, otherwise please enter 2");
+void choose_how_to_test( test_data parameters[], SquareEquationCoefficients *coefficients, EquationParameters *equation_parameters )
+{
+    printf( "#If you want test solver automatically please enter 1, otherwise please enter 2\n" );
     switch( getchar() )
     {
         case AUTOMATICALLY:
