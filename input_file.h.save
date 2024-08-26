@@ -1,0 +1,11 @@
+#ifndef _AUXILIARY_FUNC_H_
+#define _AUXILIARY_FUNC_H_
+
+#include "test.h"
+
+const WINDOWS_EOF = '26'
+
+void get_coefficients( SquareEquationCoefficients *coefficients );
+void clean_buff();
+
+#endif

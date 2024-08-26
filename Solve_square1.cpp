@@ -32,18 +32,18 @@ struct test_data
 
 const double EPSILON = 1e-10;
 
+enum SolveStatus
+{
+    solver_fail,
+    solver_ok
+};
+
 enum NumberOfRoots
 {
     ZERO_ROOTS   =  0,
     ONE_ROOT     =  1,
     TWO_ROOTS    =  2,
     SS_INF_ROOTS = -1
-};
-
-enum SolveStatus
-{
-    solver_fail,
-    solver_ok
 };
 
 const int NUMBER_OF_TESTS = 5;
@@ -54,21 +54,19 @@ const char SPECIFIC_CASE = '2';
 
 void get_coefficients( SquareEquationCoefficients *coefficients );
 void clean_buff();
-void  choose_how_to_test( test_data parameters[], SquareEquationCoefficients *coefficients, EquationParameters *equation_parameters );
+void choose_how_to_test( test_data parameters[], SquareEquationCoefficients *coefficients, EquationParameters *equation_parameters );
 bool compare_with_zero( double number );
+bool solve_square( EquationParameters *equation_parameters );
+bool solve_linear( EquationParameters *equation_parameters );
+bool type_definer( EquationParameters *equation_parameters );
 int  print_roots( Roots *cur_roots );
-bool  solve_square( EquationParameters *equation_parameters );
 int  run_test( test_data *data );
 int  test_solver( test_data parameters[] );
-bool  solve_linear( EquationParameters *equation_parameters );
-bool  type_definer( EquationParameters *equation_parameters );
-int  count_correct_number_of_roots( Roots *cur_roots, Roots *expected_roots );
 
 int main()
 {
     SquareEquationCoefficients coefficients = {};
 
-    Roots cur_roots = {};
     EquationParameters equation_parameters = {};
 
     test_data parameters[NUMBER_OF_TESTS] =
@@ -176,7 +174,7 @@ bool compare_with_zero( double number )
 
 void clean_buff()
 {
-    while ( getchar() != '\n' && getchar() != 'EOF' );
+    while ( getchar() != '\n' && getchar() != EOF );
 }
 
 int print_roots( Roots *cur_roots )
@@ -202,6 +200,8 @@ int print_roots( Roots *cur_roots )
             printf( "main(): ERROR: wrong number of roots" );
             return 1;
     }
+
+    // return error
 }
 
 int run_test( test_data *data )
@@ -228,7 +228,7 @@ int run_test( test_data *data )
             {
                 txSetConsoleAttr( FOREGROUND_GREEN | BACKGROUND_BLACK );
                 printf( "#OK\n" );
-                return ONE_ROOT;
+                return 1;
             }
             else
             {
@@ -236,7 +236,7 @@ int run_test( test_data *data )
                 printf( "#Error Test, a = %lg, b = %lg, c = %lg, x = %lg, number of roots = 1\n",
                         data->equation_parameters.coefficients.a, data->equation_parameters.coefficients.b, data->equation_parameters.coefficients.c, data->equation_parameters.cur_roots.x1 );
                 printf( "#Expected x = %lg", data->expected_roots.x1 );
-                break;
+                return 0;
             }
         case TWO_ROOTS:
             if ( ( ( ( compare_with_zero(   data->equation_parameters.cur_roots.x1 - data->expected_roots.x1 ) ) &&
@@ -246,7 +246,7 @@ int run_test( test_data *data )
             {
                 txSetConsoleAttr( FOREGROUND_GREEN | BACKGROUND_BLACK );
                 printf( "#OK\n" );
-                return TWO_ROOTS;
+                return 1;
             }
             else
             {
@@ -257,12 +257,12 @@ int run_test( test_data *data )
                         data->equation_parameters.cur_roots.x2 );
                 printf( "#Expected x1 = %lg, x2 = %lg",
                         data->expected_roots.x1, data->expected_roots.x2 );
-                break;
+                return 0;
             }
         case SS_INF_ROOTS:
             txSetConsoleAttr( FOREGROUND_GREEN | BACKGROUND_BLACK );
             printf( "#OK\n" );
-            return SS_INF_ROOTS;
+            return 1;
     }
 }
 
@@ -270,17 +270,15 @@ int test_solver( test_data parameters[] )
 {
     assert( parameters != NULL );
 
+    int count_of_correct_tests = 0;
+
     for ( int i = 0; i < NUMBER_OF_TESTS; i++ )
     {
-        run_test( &parameters[i] );
-        int count_of_correct_tests = 0;
-        for ( i = 0; i < NUMBER_OF_TESTS; i++ )
-        {
-            count_of_correct_tests += run_test( &parameters[i] );
-        }
-        printf( "#Number of test done right = %d out of 5", count_of_correct_tests );
-        return count_of_correct_tests;
+        count_of_correct_tests += run_test( &parameters[i] );
     }
+
+    printf( "#Number of test done right = %d out of 5", count_of_correct_tests );
+    return count_of_correct_tests;
 }
 
 void choose_how_to_test( test_data parameters[], SquareEquationCoefficients *coefficients, EquationParameters *equation_parameters )

@@ -1,0 +1,15 @@
+#include "equation_solver.h"
+#include "math_operator.h"
+#include "square_solver.h"
+#include "test.h"
+#include "print_roots.h"
+#include "input_file.h"
+
+int main()
+{
+    SquareEquationCoefficients coefficients = {};
+
+    EquationParameters equation_parameters = {};
+
+    choose_how_to_test( parameters, &coefficients, &equation_parameters );
+}
