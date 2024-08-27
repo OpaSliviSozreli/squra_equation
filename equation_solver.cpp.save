@@ -9,11 +9,14 @@ SolveStatus define_type_of_equation( const SquareEquationCoefficients *coefficie
     assert( coefficients != NULL );
     assert( cur_roots != NULL);
 
-    if ( specific_case_of_equation( coefficients, cur_roots ) == SOLVER_OK )
-        return SOLVER_OK;
+    if ( specific_case_of_equation( coefficients, cur_roots ) == SOLVER_FAIL  )
+    {
+        solve_square( coefficients, cur_roots );
 
-    if ( solve_square( coefficients, cur_roots ) == SOLVER_OK )
         return SOLVER_OK;
+    }
+    else
+        return SOLVER_FAIL;
 
     return SOLVER_FAIL;
 }

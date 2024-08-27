@@ -1,17 +1,18 @@
-#ifndef _AUXILIARY_FUNC_H_
-#define _AUXILIARY_FUNC_H_
+#ifndef _INPUT_FILE_H_
+#define _INPUT_FILE_H_
 
-#include "test.h"
+#include "equation_solver.h"
 
 const int WINDOWS_EOF = 26;
 
-enum InputCorrect
+enum InputStatus
 {
     SCAN_CORRECT   = 1,
     SCAN_INCORRECT = 0
 };
 
-bool get_coefficients( SquareEquationCoefficients *coefficients );
-void clean_buff();
+InputStatus get_coefficients( SquareEquationCoefficients *coefficients );
+InputStatus check_input_after_coeff();
+void        clean_buff();
 
 #endif

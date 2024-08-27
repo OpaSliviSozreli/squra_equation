@@ -1,0 +1,10 @@
+#include <stdio.h>
+int main()
+{
+}
+
+void print_footbal_scoreboard()
+{
+    int array_for_triangle[12] = {}
+    for( i = 1; i < 12; i++)
+        printf("

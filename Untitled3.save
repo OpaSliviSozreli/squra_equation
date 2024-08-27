@@ -1,0 +1,33 @@
+#ifndef _TEST_H_
+#define _TEST_H_
+
+struct SquareEquationCoefficients
+{
+    double a;
+    double b;
+    double c;
+};
+
+struct Roots
+{
+    double x1;
+    double x2;
+
+    int number_of_roots;
+};
+
+struct EquationParameters
+{
+    struct SquareEquationCoefficients coefficients;
+    struct Roots cur_roots;
+};
+
+struct test_data
+{
+    struct EquationParameters equation_parameters;
+    struct Roots expected_roots;
+};
+
+void choose_how_to_test( test_data parameters[], SquareEquationCoefficients *coefficients, EquationParameters *equation_parameters );
+int  run_test( test_data *data );
+int  test_solver( test_data parameters[] );

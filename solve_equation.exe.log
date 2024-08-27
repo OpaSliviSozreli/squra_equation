@@ -1,0 +1,350 @@
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x756F96B0. Попытка прочесть данные по адресу NULL в модуле C:\WINDOWS\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0065EDDC (32-bit), Flags: Cmdre0, Thread: 0x4C88 (Main), GetLastError(): 126 (Не найден указанный модуль). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\elena\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 27 2024 14:44:54, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 27 2024 14:45:14
+
+Run file:	C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe
+Directory:	C:\Users\elena\OneDrive\Документы\GitHub\squra_equation
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x756F96B0. Попытка прочесть данные по адресу NULL в модуле C:\WINDOWS\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0065EDDC (32-bit), Flags: Cmdre0, Thread: 0x4C88 (Main), GetLastError(): 126 (Не найден указанный модуль). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\elena\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 27 2024 14:44:54, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 27 2024 14:45:14
+
+Run file:	C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe
+Directory:	C:\Users\elena\OneDrive\Документы\GitHub\squra_equation
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe,
+
+ВНЕЗАПНО: Деление на ноль при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_DIVIDE_BY_ZERO (0xC000008E) при выполнении кода по адресу 0x00486057 в модуле C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0065EDDC (32-bit), Flags: Cmdre0, Thread: 0x14C0 (Main), GetLastError(): 126 (Не найден указанный модуль). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\elena\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 27 2024 18:56:32, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 27 2024 18:57:13
+
+Run file:	C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe
+Directory:	C:\Users\elena\OneDrive\Документы\GitHub\squra_equation
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+Деление на ноль при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_DIVIDE_BY_ZERO (0xC000008E) при выполнении кода по адресу 0x00486057 в модуле C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0065EDDC (32-bit), Flags: Cmdre0, Thread: 0x14C0 (Main), GetLastError(): 126 (Не найден указанный модуль). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\elena\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 27 2024 18:56:32, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 27 2024 18:57:13
+
+Run file:	C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe
+Directory:	C:\Users\elena\OneDrive\Документы\GitHub\squra_equation
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe,
+
+ВНЕЗАПНО: Деление на ноль при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_DIVIDE_BY_ZERO (0xC000008E) при выполнении кода по адресу 0x00486057 в модуле C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0065EDDC (32-bit), Flags: Cmdre0, Thread: 0xB70 (Main), GetLastError(): 126 (Не найден указанный модуль). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\elena\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 27 2024 18:58:49, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 27 2024 18:59:36
+
+Run file:	C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe
+Directory:	C:\Users\elena\OneDrive\Документы\GitHub\squra_equation
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+Деление на ноль при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_DIVIDE_BY_ZERO (0xC000008E) при выполнении кода по адресу 0x00486057 в модуле C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0065EDDC (32-bit), Flags: Cmdre0, Thread: 0xB70 (Main), GetLastError(): 126 (Не найден указанный модуль). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\elena\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 27 2024 18:58:49, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 27 2024 18:59:36
+
+Run file:	C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe
+Directory:	C:\Users\elena\OneDrive\Документы\GitHub\squra_equation
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe,
+
+ВНЕЗАПНО: Деление на ноль при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_DIVIDE_BY_ZERO (0xC000008E) при выполнении кода по адресу 0x00486057 в модуле C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0065EDDC (32-bit), Flags: Cmdre0, Thread: 0x27B8 (Main), GetLastError(): 126 (Не найден указанный модуль). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\elena\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 27 2024 19:00:38, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 27 2024 19:01:26
+
+Run file:	C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe
+Directory:	C:\Users\elena\OneDrive\Документы\GitHub\squra_equation
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+Деление на ноль при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_DIVIDE_BY_ZERO (0xC000008E) при выполнении кода по адресу 0x00486057 в модуле C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0065EDDC (32-bit), Flags: Cmdre0, Thread: 0x27B8 (Main), GetLastError(): 126 (Не найден указанный модуль). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\elena\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 27 2024 19:00:38, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 27 2024 19:01:26
+
+Run file:	C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe
+Directory:	C:\Users\elena\OneDrive\Документы\GitHub\squra_equation
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe,
+
+ВНЕЗАПНО: Деление на ноль при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_DIVIDE_BY_ZERO (0xC000008E) при выполнении кода по адресу 0x00486057 в модуле C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0065EDDC (32-bit), Flags: Cmdre0, Thread: 0x5CCC (Main), GetLastError(): 126 (Не найден указанный модуль). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\elena\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 27 2024 19:06:31, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 27 2024 19:06:40
+
+Run file:	C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe
+Directory:	C:\Users\elena\OneDrive\Документы\GitHub\squra_equation
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+Деление на ноль при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_DIVIDE_BY_ZERO (0xC000008E) при выполнении кода по адресу 0x00486057 в модуле C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0065EDDC (32-bit), Flags: Cmdre0, Thread: 0x5CCC (Main), GetLastError(): 126 (Не найден указанный модуль). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\elena\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 27 2024 19:06:31, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 27 2024 19:06:40
+
+Run file:	C:\Users\elena\OneDrive\Документы\GitHub\squra_equation\solve_equation.exe
+Directory:	C:\Users\elena\OneDrive\Документы\GitHub\squra_equation
+
+--------------------------------------------------

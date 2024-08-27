@@ -1,7 +1,5 @@
-#ifndef _MATH_OPERATOR_
-#define _MATH_OPERATOR_
-
-#include "test.h"
+#ifndef _MATH_OPERATOR_H_
+#define _MATH_OPERATOR_H_
 
 const double EPSILON = 1e-10;
 

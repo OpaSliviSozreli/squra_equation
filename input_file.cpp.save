@@ -14,7 +14,7 @@ InputStatus get_coefficients( SquareEquationCoefficients *coefficients )
         printf( "#Enter a again" );
         clean_buff();
     }
-    check_input_after_coeff();
+    check_input_after_coeff( coefficients );
 
     return SCAN_INCORRECT;
 }
@@ -25,9 +25,9 @@ void clean_buff()
     while ( getchar() != '\n' && getchar() != WINDOWS_EOF );
 }
 
-InputStatus check_input_after_coeff()
+InputStatus check_input_after_coeff( SquareEquationCoefficients *coefficients )
 {
-    for ( char i = (char)getchar(); i != '\n' && i != WINDOWS_EOF;  )
+    for ( char i = (char)getchar(); i != '\n' || i != WINDOWS_EOF;  )
     {
         if ( i == ' ' )
             return SCAN_CORRECT;
@@ -36,6 +36,13 @@ InputStatus check_input_after_coeff()
 
             return SCAN_INCORRECT;
     }
-
+    
     return SCAN_INCORRECT;
+}
+
+for (int i = 0; i < 8; i++)
+
+int i = 0;
+while (i<8) {
+
 }

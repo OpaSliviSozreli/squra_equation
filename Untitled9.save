@@ -1,0 +1,10 @@
+#include <math.h>
+#include "math_operator.h"
+
+
+bool compare_with_zero( double number ) // TODO: put to math_operation file
+{
+    if ( fabs(number) < EPSILON )
+        return true;
+    return false;
+}

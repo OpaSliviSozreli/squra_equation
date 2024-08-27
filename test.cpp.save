@@ -57,11 +57,13 @@ int test_solver()
 void standard_mode_run()
 {
     SquareEquationCoefficients coefficients = {};
+    EquationParameters equation_parameters = {};
     Roots cur_roots = {};
 
     get_coefficients( &coefficients );
+    equation_parameters.coefficients = coefficients;
     define_type_of_equation( &coefficients, &cur_roots );
-    print_roots( &cur_roots );
+    print_roots( equation_parameters.cur_roots );
 }
 
 TestStatus print_test_results( const test_data *data, Roots *cur_roots )
@@ -71,10 +73,7 @@ TestStatus print_test_results( const test_data *data, Roots *cur_roots )
     switch( number_of_roots )
     {
         case ZERO_ROOTS:
-            txSetConsoleAttr( FOREGROUND_GREEN | BACKGROUND_BLACK );
             printf( "#OK\n" );
-            txSetConsoleAttr( FOREGROUND_WHITE | BACKGROUND_BLACK );
-
             return TEST_OK;
             break;
         case ONE_ROOT:
@@ -82,7 +81,6 @@ TestStatus print_test_results( const test_data *data, Roots *cur_roots )
             {
                 txSetConsoleAttr( FOREGROUND_GREEN | BACKGROUND_BLACK );
                 printf( "#OK\n" );
-                txSetConsoleAttr( FOREGROUND_WHITE | BACKGROUND_BLACK );
 
                 return TEST_OK;
             }
@@ -92,7 +90,6 @@ TestStatus print_test_results( const test_data *data, Roots *cur_roots )
                 printf( "#Error Test, a = %lg, b = %lg, c = %lg, x = %lg, number of roots = 1\n",
                         data->coefficients.a, data->coefficients.b, data->coefficients.c, cur_roots->x1 );
                 printf( "#Expected x = %lg\n", data->expected_roots.x1 );
-                txSetConsoleAttr( FOREGROUND_WHITE | BACKGROUND_BLACK );
 
                 return TEST_FAIL;
             }
@@ -105,7 +102,6 @@ TestStatus print_test_results( const test_data *data, Roots *cur_roots )
             {
                 txSetConsoleAttr( FOREGROUND_GREEN | BACKGROUND_BLACK );
                 printf( "#OK\n" );
-                txSetConsoleAttr( FOREGROUND_WHITE | BACKGROUND_BLACK );
 
                 return TEST_OK;
             }
@@ -117,22 +113,16 @@ TestStatus print_test_results( const test_data *data, Roots *cur_roots )
                         data->coefficients.c, cur_roots->x1, cur_roots->x2 );
                 printf( "#Expected x1 = %lg, x2 = %lg\n",
                         data->expected_roots.x1, data->expected_roots.x2 );
-                txSetConsoleAttr( FOREGROUND_WHITE | BACKGROUND_BLACK );
-
                 return TEST_FAIL;
             }
             break;
         case SS_INF_ROOTS:
             txSetConsoleAttr( FOREGROUND_GREEN | BACKGROUND_BLACK );
             printf( "#OK\n" );
-            txSetConsoleAttr( FOREGROUND_WHITE | BACKGROUND_BLACK );
-
             return TEST_OK;
         default:
             txSetConsoleAttr( FOREGROUND_RED | BACKGROUND_BLACK );
             printf( "main(): ERROR: wrong number of roots" );
-            txSetConsoleAttr( FOREGROUND_WHITE | BACKGROUND_BLACK );
-
             return TEST_FAIL;
     }
 
