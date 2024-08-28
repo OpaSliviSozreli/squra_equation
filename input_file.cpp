@@ -11,7 +11,7 @@ InputStatus get_coefficients( SquareEquationCoefficients *coefficients )
 
     while ( scanf( "%lg%lg%lg", &coefficients->a, &coefficients->b, &coefficients->c ) != 3 )
     {
-        printf( "#Enter a again" );
+        printf( "#Enter a, b, c again" );
         clean_buff();
     }
     check_input_after_coeff();

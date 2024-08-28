@@ -18,10 +18,6 @@ int main( const int argc, const char *argv[] )
             if ( strcmp( argv[1], "-t" ) == 0 )
                 test_solver();
             break;
-        case 3:
-            if ( strcmp(argv[1], "-t" ) == 0 )
-                test_solver();
-            break;
         default:
             txSetConsoleAttr( FOREGROUND_RED | BACKGROUND_BLACK );
             printf( "main(): ERROR" );
